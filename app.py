@@ -7,6 +7,7 @@ import streamlit as st
 # rcParams['font.family'] = 'IPAexGothic'  # 日本語用フォントがシステムにある場合
 # rcParams['font.family'] = ['Noto Sans CJK JP', 'sans-serif']
 
+import os
 from matplotlib import rcParams, font_manager
 
 # フォントパスを指定して読み込み
