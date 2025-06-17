@@ -79,7 +79,8 @@ if uploaded_file1 and uploaded_file2:
         name1 = uploaded_file1.name if uploaded_file1 else "Image 1"
         name2 = uploaded_file2.name if uploaded_file2 else "Image 2"        
         ax_images.imshow(combined_img)
-        ax_images.set_title("左：画像1　右：画像2")
+        # ax_images.set_title("左：画像1　右：画像2")
+        ax_images.set_title(f'Left: Image 1 ({name1})  Right: Image 2 ({name2})')
 
         # 下段：ヒストグラム
         ax_hist = fig.add_subplot(gs[1])
