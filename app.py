@@ -3,9 +3,16 @@ import streamlit as st
 # japanize_matplotlib を削除
 # import japanize_matplotlib
 
-from matplotlib import rcParams
+# from matplotlib import rcParams
 # rcParams['font.family'] = 'IPAexGothic'  # 日本語用フォントがシステムにある場合
-rcParams['font.family'] = ['Noto Sans CJK JP', 'sans-serif']
+# rcParams['font.family'] = ['Noto Sans CJK JP', 'sans-serif']
+
+from matplotlib import rcParams, font_manager
+
+# フォントパスを指定して読み込み
+font_path = "fonts/ipaexg.ttf"
+font_prop = font_manager.FontProperties(fname=font_path)
+rcParams['font.family'] = font_prop.get_name()
 
 import matplotlib.pyplot as plt
 from PIL import Image
