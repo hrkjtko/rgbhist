@@ -4,7 +4,8 @@ import streamlit as st
 # import japanize_matplotlib
 
 from matplotlib import rcParams
-rcParams['font.family'] = 'IPAexGothic'  # 日本語用フォントがシステムにある場合
+# rcParams['font.family'] = 'IPAexGothic'  # 日本語用フォントがシステムにある場合
+rcParams['font.family'] = ['Noto Sans CJK JP', 'sans-serif']
 
 import matplotlib.pyplot as plt
 from PIL import Image
