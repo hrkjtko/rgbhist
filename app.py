@@ -10,9 +10,18 @@ import streamlit as st
 from matplotlib import rcParams, font_manager
 
 # フォントパスを指定して読み込み
+# font_path = "fonts/ipaexg.ttf"
+# font_prop = font_manager.FontProperties(fname=font_path)
+# rcParams['font.family'] = font_prop.get_name()
+
 font_path = "fonts/ipaexg.ttf"
-font_prop = font_manager.FontProperties(fname=font_path)
-rcParams['font.family'] = font_prop.get_name()
+if os.path.exists(font_path):
+    font_prop = font_manager.FontProperties(fname=font_path)
+    rcParams['font.family'] = font_prop.get_name()
+else:
+    # フォールバック（英語フォント）
+    st.warning("日本語フォントが見つかりません。代替フォントを使用します。")
+    rcParams['font.family'] = 'sans-serif'
 
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -58,6 +67,10 @@ if uploaded_file1 and uploaded_file2:
         # 上段：画像表示
         ax_images = fig.add_subplot(gs[0])
         ax_images.axis('off')
+        
+        # 画像ファイル名を取得してタイトルに反映
+        name1 = uploaded_file1.name if uploaded_file1 else "Image 1"
+        name2 = uploaded_file2.name if uploaded_file2 else "Image 2"        
         ax_images.imshow(combined_img)
         ax_images.set_title("左：画像1　右：画像2")
 
