@@ -53,8 +53,8 @@ def get_rgb_histograms(img_file):
         return None, None, None, None
 
 # アップロード
-uploaded_file1 = st.file_uploader("画像1をアップロード", type=["jpg", "jpeg", "png"], key="1")
-uploaded_file2 = st.file_uploader("画像2をアップロード", type=["jpg", "jpeg", "png"], key="2")
+uploaded_file1 = st.file_uploader("Image 1をアップロード", type=["jpg", "jpeg", "png"], key="1")
+uploaded_file2 = st.file_uploader("Image 2をアップロード", type=["jpg", "jpeg", "png"], key="2")
 
 if uploaded_file1 and uploaded_file2:
     hist1_r, hist1_g, hist1_b, img1 = get_rgb_histograms(uploaded_file1)
@@ -79,20 +79,20 @@ if uploaded_file1 and uploaded_file2:
         name1 = uploaded_file1.name if uploaded_file1 else "Image 1"
         name2 = uploaded_file2.name if uploaded_file2 else "Image 2"        
         ax_images.imshow(combined_img)
-        # ax_images.set_title("左：画像1　右：画像2")
-        ax_images.set_title(f'Left: Image 1 ({name1})  Right: Image 2 ({name2})')
+        ax_images.set_title("Left：Image 1    Right：Image 2")
+        # ax_images.set_title(f'Left: Image 1 ({name1})  Right: Image 2 ({name2})')
 
         # 下段：ヒストグラム
         ax_hist = fig.add_subplot(gs[1])
-        ax_hist.plot(hist1_r, color='red', label='画像1 Red', alpha=0.7)
-        ax_hist.plot(hist1_g, color='green', label='画像1 Green', alpha=0.7)
-        ax_hist.plot(hist1_b, color='blue', label='画像1 Blue', alpha=0.7)
-        ax_hist.plot(hist2_r, color='darkred', linestyle='--', label='画像2 Red', alpha=0.7)
-        ax_hist.plot(hist2_g, color='darkgreen', linestyle='--', label='画像2 Green', alpha=0.7)
-        ax_hist.plot(hist2_b, color='darkblue', linestyle='--', label='画像2 Blue', alpha=0.7)
-        ax_hist.set_title("RGBヒストグラム比較")
-        ax_hist.set_xlabel("ピクセル値")
-        ax_hist.set_ylabel("頻度")
+        ax_hist.plot(hist1_r, color='red', label='Image 1 Red', alpha=0.7)
+        ax_hist.plot(hist1_g, color='green', label='Image 1 Green', alpha=0.7)
+        ax_hist.plot(hist1_b, color='blue', label='Image 1 Blue', alpha=0.7)
+        ax_hist.plot(hist2_r, color='darkred', linestyle='--', label='Image 2 Red', alpha=0.7)
+        ax_hist.plot(hist2_g, color='darkgreen', linestyle='--', label='Image 2 Green', alpha=0.7)
+        ax_hist.plot(hist2_b, color='darkblue', linestyle='--', label='Image 2 Blue', alpha=0.7)
+        ax_hist.set_title("Combined RGB Histograms")
+        ax_hist.set_xlabel("Pixel Value")
+        ax_hist.set_ylabel("Frequency")
         ax_hist.grid(True)
         ax_hist.legend()
 
