@@ -1,5 +1,11 @@
 # streamlit_app.py
 import streamlit as st
+
+import matplotlib
+import shutil
+
+shutil.rmtree(matplotlib.get_cachedir(), ignore_errors=True)
+
 # japanize_matplotlib を削除
 # import japanize_matplotlib
 
