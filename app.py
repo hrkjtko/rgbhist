@@ -1,6 +1,11 @@
 # streamlit_app.py
 import streamlit as st
-import japanize_matplotlib
+# japanize_matplotlib を削除
+# import japanize_matplotlib
+
+from matplotlib import rcParams
+rcParams['font.family'] = 'IPAexGothic'  # 日本語用フォントがシステムにある場合
+
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
